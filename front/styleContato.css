@@ -1,0 +1,32 @@
+main{
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.contato-bloco{
+    width: 40%;
+    margin: 0 auto;
+}
+
+.contato-bloco h2{
+    text-align: center;
+}
+
+.contatos{
+    background-color: rgb(221, 221, 221);
+    border-radius: 10px;
+    padding: 10px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.contatos p{
+    background-color: rgb(240, 240, 240);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.contatos span{
+    font-weight: bold;
+}

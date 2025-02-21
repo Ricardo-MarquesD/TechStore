@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/Captura de tela 2025-01-23 100915.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="/img/Captura de tela 2025-01-23 100915.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/img/Captura de tela 2025-01-23 100915.png" sizes="48x48" type="image/png">
+    <link rel="stylesheet" href="/global/globalstyle.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styleEntrada.css">
+
+    <title>TechStore Solutions</title>
+</head>
+
+<body>
+    <!--Cabeçalho padrão das páginas-->
+    <header>
+
+        <div class="barra-preta">
+            <h2>SATISFAÇÃO GARANTIDA</h2>
+            <h2>DEVOLUÇÕES & TROCAS GARANTIDAS</h2>
+            <h2>ASSISTÊNCIA E COMPROMETIMENTO</h2>
+        </div>
+
+        <div class="barra-azul">
+
+            <div class="container">
+                <a href="index.html"><img src="/img/Captura de tela 2025-01-23 100915.png" alt=""></a>
+
+                <form action="/pesquisar" method="get">
+                    <input type="text" placeholder="Buscar..." name="search">
+                </form>
+
+                <div></div>
+
+                <div class="bloco">
+
+                    <img src="/img/images.png" alt="account">
+
+                    <div>
+                        <h3>MINHA CONTA</h3>
+                        <h3><a href="login.html">ENTRAR</a> / <a href="cadastro.html">CRIAR CONTA</a></h3>
+                    </div>
+                </div>
+
+                <div class="bloco">
+
+                    <img src="/img/3190422.png" alt="atendimento">
+
+                    <h3>ATENDIMENTO AO CLIENTE</h3>
+
+                </div>
+
+                <div class="bloco">
+
+                    <img src="/img/126510.png" alt="carrinho">
+
+                    <h3>CARRINHO</h3>
+
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+    <main>
+        <!--Conteúdo da página-->
+        <h2 class="login-cadastro">ACESSE SUA CONTA</h2>
+
+        <div class="form">
+
+            <form action="/login" method="get">
+
+                <div class="elementos-form">
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="elementos-form">
+                    <label for="senha">Senha:</label><br>
+                    <input type="password" id="senha" required>
+                </div>
+
+                <div class="elementos-form">
+                    <button type="submit">ENTRAR</button>
+                </div>
+            </form>
+
+        </div>
+
+        <p class="centralizar"><a href="#recuperar">Esqueci minha senha</a></p>
+
+        <p class="centralizar">Ainda não tem uma conta? <a href="cadastro.html">CADASTRE-SE AQUI</a></p>
+
+    </main>
+
+    <!--Rodapé padrão das páginas-->
+    <footer>
+
+        <div class="bloco-footer">
+
+            <div>
+                <h2>FALE CONOSCO:</h2>
+                <p>Localização: Católica Brasília</p>
+                <p>Telefone: (00) 90000-0000 / (00) 3333-3333</p>
+                <p>E-mail de Contato: Exemplo@gmail.com</p>
+                <p>CNPJ: 00.000.000.0000-00</p>
+            </div>
+
+            <div>
+                <p>Assistência Técnica</p>
+                <p>Devolução & Troca</p>
+                <p>Cadastra-se</p>
+            </div>
+
+            <div>
+                <p>Siga-nos:</p>
+                <img src="/img/Captura_de_tela_2025-01-24_184654-removebg-preview.png" alt="redes">
+
+                <p>Onde está o meu produto?<br> <a href="#rastreio">Rastear Pedido</a></p><br>
+                <p>Sobre Nós TechStore</p><br>
+                <p>Politicas de Privacidades</p>
+
+            </div>
+
+        </div>
+
+        <div class="footer-final">
+            <img src="/img/WhatsApp_Image_2025-01-24_at_16.20.29-removebg-preview.png" alt="pagamentos">
+            <p>&copy; 2025 TechStore Solutions. Todos os direitos reservados.</p>
+        </div>
+
+    </footer>
+
+    <script>
+        document.querySelector('form[action="/login"]').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+
+            fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, senha })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    } else {
+                        throw new Error('Credenciais inválidas!');
+                    }
+                })
+                .then(data => alert(data))
+                .catch(error => alert(error.message));
+        });
+    </script>
+
+
+</body>
+
+</html>
